@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anelise Lunkes - Podóloga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #60a5fa;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .nav {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+        /* Menu mobile ativo */
+        .nav.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%; /* logo abaixo do header */
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            gap: 1rem;
+            z-index: 999;
+        }
+
+        .nav.active a {
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .hero {
+            background: 
+                linear-gradient(135deg, rgba(74, 92, 131, 0.4), rgba(49, 62, 104, 0.4)), 
+                url('./img/podologia-o-que-e-4-mob.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .contact-item strong {
+            color: var(--text-dark);
+            margin-left: 0.5rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .about-text{
+                text-align: center;
+            }
+            .contact-info h3 {
+                display: flex;
+                justify-content: center;
+            }
+            .contact-info p {
+                text-align: center;
+            }
+            .contact-item{
+                display: flex;
+                justify-content: center;
+            }
+            .contact-item{
+                text-align: center;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 561px) {
+            .footer-section{
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .service-card,
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+        }
+        @media (max-width: 370px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card,
+        .about-content,
+        .contact-form {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Anelise Lunkes – Podóloga</div>
+                <nav>
+                    <ul class="nav">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Cuidado Especializado para seus Pés</h1>
+                <p>Tratamentos podológicos profissionais com técnicas modernas e atendimento personalizado para sua saúde e bem-estar.</p>
+                <a href="#contato" class="cta-button">Agende sua Consulta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="section about">
+        <div class="container">
+            <h2 class="section-title">Sobre Anelise</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Especialista em Podologia</h3>
+                    <p>Com mais de 10 anos de experiência na área da podologia, dedico-me ao cuidado integral dos pés, oferecendo tratamentos especializados e personalizados para cada paciente.</p>
+                    <p>Formada em Podologia pela Universidade Federal, possuo especialização em biomecânica dos pés e tratamentos preventivos. Minha missão é proporcionar saúde, conforto e bem-estar através de cuidados podológicos de excelência.</p>
+                    <p>Atendo em consultório moderno e equipado, seguindo todos os protocolos de segurança e higiene, garantindo um atendimento seguro e eficaz.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/placeholder.svg?height=400&width=400" alt="Anelise Lunkes - Podóloga">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="section">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Oferecemos uma gama completa de tratamentos podológicos para cuidar da saúde dos seus pés</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🦶</div>
+                    <h3>Tratamento de Unhas Encravadas</h3>
+                    <p>Procedimento especializado para correção de unhas encravadas, aliviando a dor e prevenindo infecções com técnicas modernas e seguras.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Remoção de Calos e Calosidades</h3>
+                    <p>Tratamento profissional para remoção de calos, calosidades e hiperqueratoses, devolvendo o conforto e a saúde dos seus pés.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💧</div>
+                    <h3>Hidratação e Cuidados Preventivos</h3>
+                    <p>Tratamentos de hidratação profunda e orientações para cuidados preventivos, mantendo seus pés sempre saudáveis e bonitos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h3>Tratamento de Micoses</h3>
+                    <p>Diagnóstico e tratamento especializado de micoses e outras infecções fúngicas, com acompanhamento completo até a cura.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👟</div>
+                    <h3>Avaliação Biomecânica</h3>
+                    <p>Análise completa da pisada e orientações sobre calçados adequados para prevenir problemas e melhorar sua qualidade de vida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <p>Entre em contato para agendar sua consulta ou esclarecer dúvidas. Estou aqui para cuidar da saúde dos seus pés.</p>
+                    
+                    <div class="contact-item">
+                        <strong>📞(45) 999887908</strong>
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧aneliselunkes@gmail.com</strong>
+                    </div>
+                    <div class="contact-item">
+                        <strong>📍Rua das Missões, 734 - Jardim Marechal, Marechal Cândido Rondon - PR</strong>
+                    </div>
+                    <div class="contact-item">
+                        <strong>🕒Segunda a Sexta: 8h às 18h | Sábado: 8h às 12h</strong>
+                    </div>
+                </div>
+                <form class="contact-form" action="https://formsubmit.co/aneliselunkes@gmail.com" method="POST">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Descreva como posso ajudá-lo..." required></textarea>
+                    </div>
+
+                    <!-- CONFIGURAÇÕES DO FORMSUBMIT -->
+                    <input type="hidden" name="_subject" value="Nova mensagem do site!">
+                    <input type="hidden" name="_captcha" value="false"> <!-- desativa captcha -->
+                    <input type="hidden" name="_template" value="box"> <!-- deixa o e-mail mais bonito -->
+                    <input type="hidden" name="_next" value="./obrigado.html"> <!-- redireciona após envio -->
+
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="localizacao" class="section location">
+        <div class="container">
+            <h2 class="section-title">Localização</h2>
+            <div class="location-content">
+                <div class="location-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.779838169605!2d-54.06125088505549!3d-24.556860784199404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3b69db13a39c3%3A0x9b6df77b8bb8f527!2sR.%20das%20Miss%C3%B5es%2C%20734%20-%20Jardim%20Marechal%2C%20Marechal%20C%C3%A2ndido%20Rondon%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1692110400000!5m2!1spt-BR!2sbr" 
+                        width="100%" 
+                        height="350" 
+                        style="border:0; border-radius:12px;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Anelise Lunkes</h3>
+                    <p>Podóloga especializada em cuidados integrais dos pés, oferecendo tratamentos modernos e personalizados.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <a href="tel:11999999999">(11) 99999-9999</a>
+                    <a href="mailto:contato@anelisepodologa.com.br">contato@anelisepodologa.com.br</a>
+                    <p>Rua das Flores, 123 - Centro<br>São Paulo - SP</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Horário de Funcionamento</h3>
+                    <p>Segunda a Sexta: 8h às 18h</p>
+                    <p>Sábado: 8h às 12h</p>
+                    <p>Domingo: Fechado</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anelise Lunkes - Podóloga. Todos os direitos reservados.</p>
+                <p style="padding-bottom: 20px; padding-top: 10px;">Desenvolvido por <a style="color: #60a5fa;" href="https://wirestack.com.br/">Wire Stack</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/menu.js"></script>
+    <script src="./js/url-sem-id.js"></script>
+
+</body>
+</html>
