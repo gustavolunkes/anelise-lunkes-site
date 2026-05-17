@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anelise Lunkes, podóloga em Marechal Cândido Rondon. Atendimento especializado para unhas encravadas, calosidades, micoses e cuidados preventivos.">
+    <title>Anelise Lunkes | Podóloga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --brand: #187c75;
+            --brand-dark: #0d4f4b;
+            --accent: #c8755a;
+            --accent-dark: #a85c43;
+            --ink: #20302d;
+            --muted: #66736f;
+            --line: #dde8e5;
+            --paper: #fffdf9;
+            --mist: #edf7f4;
+            --sage: #dcebe5;
+            --white: #ffffff;
+            --shadow-sm: 0 4px 16px rgba(32, 48, 45, 0.08);
+            --shadow: 0 18px 45px rgba(32, 48, 45, 0.12);
+            --shadow-lg: 0 28px 60px rgba(32, 48, 45, 0.18);
+            --radius: 10px;
+            --radius-sm: 6px;
+            --radius-lg: 18px;
+            --transition: 0.25s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-width: 320px;
+            font-family: 'Inter', Arial, sans-serif;
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        img,
+        video {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        /* ─── HEADER ──────────────────────────────────────────── */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            background: rgba(255, 253, 249, 0.82);
+            border-bottom: 1px solid rgba(221, 232, 229, 0.6);
+            backdrop-filter: blur(20px);
+            transition: background var(--transition), box-shadow var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 253, 249, 0.97);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 76px;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: var(--brand-dark);
+            line-height: 1.05;
+        }
+
+        .logo strong {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .logo span {
+            margin-top: 0.22rem;
+            color: var(--muted);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            list-style: none;
+        }
+
+        .nav a {
+            position: relative;
+            display: inline-flex;
+            padding: 0.55rem 0.85rem;
+            color: var(--ink);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: color var(--transition), background var(--transition);
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            color: var(--brand-dark);
+            background: var(--mist);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            left: 0.85rem;
+            right: 0.85rem;
+            bottom: 0.2rem;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform var(--transition);
+        }
+
+        .nav a:hover::after,
+        .nav a:focus-visible::after {
+            transform: scaleX(1);
+        }
+
+        .mobile-menu {
+            display: none;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--white);
+            cursor: pointer;
+            transition: background var(--transition);
+        }
+
+        .mobile-menu:hover {
+            background: var(--mist);
+        }
+
+        .mobile-menu-lines,
+        .mobile-menu-lines::before,
+        .mobile-menu-lines::after {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 2px;
+            transition: transform 0.22s ease, opacity 0.22s ease;
+        }
+
+        .mobile-menu-lines {
+            position: relative;
+        }
+
+        .mobile-menu-lines::before,
+        .mobile-menu-lines::after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+
+        .mobile-menu-lines::before { top: -7px; }
+        .mobile-menu-lines::after { top: 7px; }
+
+        .mobile-menu.open .mobile-menu-lines {
+            background: transparent;
+        }
+
+        .mobile-menu.open .mobile-menu-lines::before {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .mobile-menu.open .mobile-menu-lines::after {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ─── HERO ────────────────────────────────────────────── */
+
+        .hero {
+            position: relative;
+            min-height: 92svh;
+            display: flex;
+            align-items: center;
+            padding: 8.5rem 0 5.5rem;
+            color: var(--white);
+            isolation: isolate;
+            overflow: hidden;
+            background: var(--brand-dark);
+        }
+
+        /* Static image fallback */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+            background: url('./img/podologia-procedimento.jpg') center/cover no-repeat;
+        }
+
+        /* Gradient overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                linear-gradient(100deg, rgba(9, 34, 32, 0.92) 0%, rgba(9, 34, 32, 0.7) 45%, rgba(9, 34, 32, 0.22) 100%),
+                linear-gradient(0deg, rgba(9, 34, 32, 0.45) 0%, transparent 60%);
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile portrait video – hidden on desktop */
+        .hero-video--mobile {
+            display: none;
+        }
+
+        .hero-content {
+            width: min(700px, 100%);
+            animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        @keyframes heroFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.35rem;
+            color: rgba(200, 240, 230, 0.95);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            line-height: 1.1;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            max-width: 12ch;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: rgba(220, 250, 240, 0.92);
+        }
+
+        .hero p {
+            max-width: 540px;
+            margin-top: 1.35rem;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.12rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 2.2rem;
+        }
+
+        /* ─── BUTTONS ─────────────────────────────────────────── */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 50px;
+            padding: 0.85rem 1.5rem;
+            border: 1.5px solid transparent;
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: var(--white);
+            color: var(--brand-dark);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .button-primary:hover,
+        .button-primary:focus-visible {
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-secondary {
+            border-color: rgba(255, 255, 255, 0.38);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .button-secondary:hover,
+        .button-secondary:focus-visible {
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .button-brand {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+            box-shadow: 0 4px 16px rgba(200, 117, 90, 0.25);
+        }
+
+        .button-brand:hover,
+        .button-brand:focus-visible {
+            background: var(--accent-dark);
+            box-shadow: 0 14px 32px rgba(200, 117, 90, 0.35);
+        }
+
+        .button-outline-white {
+            border-color: rgba(255, 255, 255, 0.45);
+            color: var(--white);
+        }
+
+        .hero-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            margin-top: 2.5rem;
+            list-style: none;
+        }
+
+        .hero-points li {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .hero-points li::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            flex: 0 0 auto;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(200, 117, 90, 0.22);
+        }
+
+        /* ─── SECTIONS ────────────────────────────────────────── */
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-muted {
+            background: var(--mist);
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: 0.75fr 1fr;
+            gap: 2.5rem;
+            align-items: end;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-heading-centered {
+            display: block;
+            max-width: 780px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .section-heading-centered .section-kicker {
+            margin-bottom: 0.9rem;
+        }
+
+        .section-heading-centered .section-title {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .section-heading-centered .section-lead {
+            max-width: 580px;
+            margin: 1.1rem auto 0;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+            color: var(--brand);
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .section-kicker::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-heading-centered .section-kicker {
+            justify-content: center;
+        }
+
+        .section-title {
+            color: var(--ink);
+            font-size: 2.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .section-lead {
+            color: var(--muted);
+            font-size: 1.06rem;
+            line-height: 1.7;
+        }
+
+        /* ─── REVEAL ANIMATION ────────────────────────────────── */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ─── ABOUT ───────────────────────────────────────────── */
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-copy {
+            display: grid;
+            gap: 1.2rem;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .about-copy strong {
+            color: var(--brand-dark);
+        }
+
+        .trust-list {
+            display: grid;
+            gap: 0.85rem;
+            margin-top: 1rem;
+            list-style: none;
+        }
+
+        .trust-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            color: var(--ink);
+            font-size: 0.97rem;
+            font-weight: 600;
+        }
+
+        .trust-list li::before {
+            content: '';
+            flex: 0 0 8px;
+            width: 8px;
+            height: 8px;
+            margin-top: 0.55rem;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .image-panel {
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .image-panel img {
+            width: 100%;
+            height: 100%;
+            min-height: 340px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+
+        .image-panel img:nth-child(2) {
+            min-height: 260px;
+            margin-top: 2.5rem;
+            border-radius: var(--radius);
+        }
+
+        /* ─── SERVICES ────────────────────────────────────────── */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+
+        .service-card {
+            position: relative;
+            min-height: 270px;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            border-radius: 2px 0 0 2px;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: rgba(24, 124, 117, 0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .service-card-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1.4rem;
+            border-radius: 10px;
+            background: var(--sage);
+            color: var(--brand-dark);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            transition: background var(--transition), color var(--transition);
+        }
+
+        .service-card:hover .service-card-num {
+            background: var(--brand);
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.75rem;
+            color: var(--ink);
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        /* ─── CONTACT ─────────────────────────────────────────── */
+
+        .contact {
+            background: var(--brand-dark);
+            color: var(--white);
+        }
+
+        .contact .section-kicker {
+            color: rgba(180, 240, 220, 0.9);
+        }
+
+        .contact .section-kicker::before {
+            background: var(--accent);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-lead {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 0.85fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .contact-item {
+            padding: 1.15rem 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.06);
+            transition: background var(--transition), border-color var(--transition);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item span {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: rgba(180, 240, 220, 0.8);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.97rem;
+            text-decoration: none;
+            line-height: 1.55;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.4rem;
+        }
+
+        .contact-form {
+            padding: 1.75rem;
+            border-radius: var(--radius-lg);
+            background: var(--paper);
+            color: var(--ink);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-title {
+            margin-bottom: 1.35rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: var(--ink);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            border: 1.5px solid var(--line);
+            border-radius: var(--radius);
+            padding: 0.85rem 1rem;
+            color: var(--ink);
+            background: var(--white);
+            font: inherit;
+            font-size: 0.96rem;
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(24, 124, 117, 0.14);
+        }
+
+        .form-group textarea {
+            min-height: 128px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            min-height: 52px;
+            border: 0;
+            border-radius: var(--radius);
+            background: var(--accent);
+            color: var(--white);
+            font: inherit;
+            font-size: 0.97rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: 0.01em;
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+        }
+
+        .submit-btn:hover,
+        .submit-btn:focus-visible {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(200, 117, 90, 0.32);
+        }
+
+        /* ─── MAP ─────────────────────────────────────────────── */
+
+        .location-map {
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .location-map iframe {
+            display: block;
+            width: 100%;
+            min-height: 380px;
+            border: 0;
+        }
+
+        /* ─── FOOTER ──────────────────────────────────────────── */
+
+        .footer {
+            padding: 3.5rem 0 1.5rem;
+            background: #111e1b;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.85rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .footer-logo span {
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 0.2rem;
+        }
+
+        .footer h4 {
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .footer p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .footer a {
+            display: block;
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 0.92rem;
+            margin-bottom: 0.5rem;
+            transition: color var(--transition);
+        }
+
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .footer-bottom a {
+            display: inline;
+            margin-bottom: 0;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+
+        /* ─── WHATSAPP FLOAT ──────────────────────────────────── */
+
+        .whatsapp-float {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.75rem;
+            z-index: 15;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.8rem 1.25rem 0.8rem 1rem;
+            border-radius: 50px;
+            background: #25d366;
+            color: var(--white);
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.42);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 36px rgba(37, 211, 102, 0.52);
+        }
+
+        .whatsapp-float svg {
+            flex: 0 0 22px;
+            width: 22px;
+            height: 22px;
+        }
+
+        /* ─── RESPONSIVE ──────────────────────────────────────── */
+
+        @media (max-width: 1040px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service-card {
+                min-height: 230px;
+            }
+
+            .service-card:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .container {
+                width: min(100% - 32px, 1120px);
+            }
+
+            .header-content {
+                min-height: 68px;
+            }
+
+            .mobile-menu {
+                display: inline-flex;
+            }
+
+            .nav {
+                position: absolute;
+                left: 16px;
+                right: 16px;
+                top: calc(100% + 8px);
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0.55rem;
+                border: 1px solid var(--line);
+                border-radius: var(--radius-lg);
+                background: var(--paper);
+                box-shadow: var(--shadow);
+            }
+
+            .nav.active {
+                display: flex;
+            }
+
+            .nav a {
+                width: 100%;
+                padding: 0.85rem 1rem;
+                border-radius: var(--radius);
+            }
+
+            .nav a::after {
+                display: none;
+            }
+
+            /* ── Hero mobile ── */
+
+            .hero {
+                min-height: 95svh;
+                padding: 7.5rem 0 4rem;
+            }
+
+            /* Hide desktop video, show mobile portrait video */
+            .hero-video--desktop {
+                display: none;
+            }
+
+            .hero-video--mobile {
+                display: block;
+            }
+
+            /* Adjust overlay for portrait video */
+            .hero::after {
+                background:
+                    linear-gradient(180deg, rgba(9, 34, 32, 0.55) 0%, rgba(9, 34, 32, 0.3) 40%, rgba(9, 34, 32, 0.75) 100%),
+                    linear-gradient(100deg, rgba(9, 34, 32, 0.85) 0%, rgba(9, 34, 32, 0.45) 100%);
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+                max-width: none;
+            }
+
+            .hero p {
+                font-size: 1.04rem;
+                max-width: 100%;
+            }
+
+            .section {
+                padding: 4.5rem 0;
+            }
+
+            .section-heading,
+            .about-layout,
+            .care-layout,
+            .contact-layout,
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .image-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .image-panel img {
+                min-height: 280px;
+            }
+
+            .image-panel img:nth-child(2) {
+                min-height: 220px;
+                margin-top: 0;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+
+            .whatsapp-float span {
+                display: none;
+            }
+
+            .whatsapp-float {
+                padding: 0.9rem;
+                border-radius: 50%;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .logo strong {
+                font-size: 1.25rem;
+            }
+
+            .logo span {
+                font-size: 0.68rem;
+            }
+
+            .hero h1 {
+                font-size: 2.55rem;
+            }
+
+            .hero-actions,
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-points {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0.65rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card:last-child {
+                grid-column: auto;
+            }
+
+            .service-card {
+                min-height: auto;
+            }
+
+            .contact-form {
+                padding: 1.25rem;
+            }
+        }
+
+        /* ─── CLÍNICA ─────────────────────────────────────────── */
+
+        .clinic-selector-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .clinic-selector {
+            display: inline-flex;
+            align-items: stretch;
+            padding: 0.3rem;
+            background: var(--sage);
+            border: 1px solid var(--line);
+            border-radius: 50px;
+            gap: 0.2rem;
+        }
+
+        .clinic-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.1rem;
+            padding: 0.7rem 1.8rem;
+            border: none;
+            border-radius: 50px;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+        }
+
+        .clinic-tab-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .clinic-tab-sub {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height var(--transition), opacity var(--transition);
+        }
+
+        .clinic-tab.active {
+            background: var(--white);
+            color: var(--brand-dark);
+            box-shadow: 0 2px 14px rgba(32, 48, 45, 0.11);
+        }
+
+        .clinic-tab.active .clinic-tab-sub {
+            max-height: 20px;
+            opacity: 1;
+        }
+
+        .clinic-tab:focus-visible {
+            outline: 2px solid var(--brand);
+            outline-offset: 2px;
+        }
+
+        .clinic-content {
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        .clinic-content.is-loading {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .clinic-meta {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .clinic-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.28rem 0.75rem;
+            margin-bottom: 0.65rem;
+            border-radius: 50px;
+            background: var(--sage);
+            color: var(--brand-dark);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .clinic-badge--filial {
+            background: rgba(200, 117, 90, 0.12);
+            color: var(--accent-dark);
+        }
+
+        .clinic-name {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.45rem;
+        }
+
+        .clinic-tagline {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 460px;
+        }
+
+        .clinic-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.3rem;
+            border-radius: var(--radius);
+            background: #25d366;
+            color: var(--white);
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.28);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .clinic-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+        }
+
+        .clinic-cta svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .clinic-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: start;
+            margin-bottom: 2.5rem;
+        }
+
+        .clinic-info-stack {
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .clinic-info-item {
+            padding: 1.1rem 1.25rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .clinic-info-label {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: var(--brand);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .clinic-info-value {
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            text-decoration: none;
+        }
+
+        a.clinic-info-value:hover {
+            text-decoration: underline;
+        }
+
+        .clinic-hours-list {
+            display: grid;
+            gap: 0.3rem;
+        }
+
+        .clinic-hour-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .clinic-hour-row span { color: var(--muted); font-weight: 500; }
+        .clinic-hour-row strong { color: var(--ink); font-weight: 600; }
+
+        .clinic-desc {
+            margin-top: 0.25rem;
+            padding: 1.15rem 1.25rem;
+            border-radius: var(--radius);
+            background: var(--mist);
+            color: var(--muted);
+            font-size: 0.93rem;
+            line-height: 1.72;
+        }
+
+        .clinic-images {
+            display: grid;
+            grid-template-columns: 1fr 0.82fr;
+            gap: 0.85rem;
+            align-items: start;
+        }
+
+        .clinic-images img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
+        .clinic-images img:first-child { height: 310px; }
+
+        .clinic-images img:last-child {
+            height: 230px;
+            margin-top: 2.5rem;
+            border-radius: var(--radius);
+        }
+
+        .clinic-map {
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .clinic-map iframe {
+            display: block;
+            width: 100%;
+            min-height: 370px;
+            border: 0;
+        }
+
+        @media (max-width: 900px) {
+            .clinic-body {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .clinic-images {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .clinic-images img:first-child,
+            .clinic-images img:last-child {
+                height: 220px;
+                margin-top: 0;
+                border-radius: var(--radius);
+            }
+        }
+
+        @media (max-width: 820px) {
+            .clinic-selector-wrap {
+                overflow-x: auto;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 0.25rem;
+            }
+
+            .clinic-selector { min-width: max-content; }
+
+            .clinic-tab { padding: 0.65rem 1.4rem; }
+
+            .clinic-meta {
+                flex-direction: column;
+                gap: 1.1rem;
+                align-items: flex-start;
+            }
+
+            .clinic-cta {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .clinic-images { grid-template-columns: 1fr; }
+            .clinic-images img:last-child { margin-top: 0; height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── HEADER ──────────────────────────────────────────────────── -->
+    <header class="header" id="site-header">
+        <div class="container">
+            <div class="header-content">
+                <a class="logo" href="#inicio" aria-label="Anelise Lunkes Podóloga">
+                    <strong>Anelise Lunkes</strong>
+                    <span>Podóloga</span>
+                </a>
+
+                <nav aria-label="Navegação principal">
+                    <ul class="nav" id="site-nav">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#clinica">Clínicas</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu" type="button" aria-label="Abrir menu" aria-controls="site-nav" aria-expanded="false">
+                    <span class="mobile-menu-lines" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ─── WHATSAPP FLOAT ──────────────────────────────────────────── -->
+    <a class="whatsapp-float" href="https://wa.me/5545999887908" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span>Agendar agora</span>
+    </a>
+
+    <main>
+
+        <!-- ─── HERO ─────────────────────────────────────────────────── -->
+        <section id="inicio" class="hero">
+
+            <!-- Desktop landscape video -->
+            <video class="hero-video hero-video--desktop" autoplay muted loop playsinline preload="metadata"
+                poster="./img/podologia-procedimento.jpg" aria-hidden="true">
+                <source src="./media/hero-desktop.mp4" type="video/mp4">
+            </video>
+
+            <!-- Mobile portrait video -->
+            <video class="hero-video hero-video--mobile" autoplay muted loop playsinline preload="metadata"
+                poster="./img/podologia-procedimento.jpg" aria-hidden="true">
+                <source src="../4855896-hd_1080_1920_30fps.mp4" type="video/mp4">
+            </video>
+
+            <div class="container">
+                <div class="hero-content">
+                    <span class="eyebrow">Podologia em Marechal Cândido Rondon</span>
+                    <h1>Anelise Lunkes <em>Podóloga</em></h1>
+                    <p>Atendimento cuidadoso para aliviar dores, tratar alterações nas unhas e devolver conforto aos seus pés com técnica, higiene e orientação clara.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="https://wa.me/5545999887908" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+                        <a class="button button-secondary" href="#servicos">Ver serviços</a>
+                    </div>
+                    <ul class="hero-points" aria-label="Destaques do atendimento">
+                        <li>Atendimento com hora marcada</li>
+                        <li>Materiais esterilizados</li>
+                        <li>Orientação preventiva</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SOBRE ─────────────────────────────────────────────────── -->
+        <section id="sobre" class="section section-muted">
+            <div class="container">
+                <div class="section-heading section-heading-centered reveal">
+                    <div>
+                        <span class="section-kicker">Sobre</span>
+                        <h2 class="section-title">Cuidado técnico com acolhimento em cada etapa.</h2>
+                    </div>
+                    <p class="section-lead">A consulta podológica olha para dor, rotina, calçados, pele e unhas. O objetivo é tratar o incômodo de hoje e ajudar você a evitar que ele volte.</p>
+                </div>
+
+                <div class="about-layout">
+                    <div class="about-copy reveal reveal-delay-1">
+                        <p><strong>Anelise Lunkes</strong> oferece atendimento em podologia clínica com foco em segurança, conforto e orientação individualizada.</p>
+                        <p>Cada procedimento é conduzido com avaliação cuidadosa, linguagem simples e atenção aos detalhes que fazem diferença no dia a dia: pisada, pressão do calçado, hidratação, corte correto e sinais de alerta.</p>
+                        <ul class="trust-list">
+                            <li>Procedimentos planejados conforme a necessidade de cada paciente</li>
+                            <li>Ambiente preparado para higiene e biossegurança</li>
+                            <li>Acompanhamento para cuidados contínuos em casa</li>
+                        </ul>
+                    </div>
+
+                    <div class="image-panel reveal reveal-delay-2" aria-label="Atendimento podológico">
+                        <img src="./img/podologia-cuidado-unhas.jpg" alt="Procedimento cuidadoso em unha do pé com luvas" loading="lazy">
+                        <img src="./img/podologia-procedimento.jpg" alt="Equipamento podológico durante tratamento nos pés" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SERVIÇOS ──────────────────────────────────────────────── -->
+        <section id="servicos" class="section">
+            <div class="container">
+                <div class="section-heading section-heading-centered reveal">
+                    <div>
+                        <span class="section-kicker">Serviços</span>
+                        <h2 class="section-title">Tratamentos para conforto, prevenção e saúde dos pés.</h2>
+                    </div>
+                    <p class="section-lead">Do alívio de dor ao cuidado preventivo, os procedimentos são indicados após avaliação para respeitar seu histórico, sensibilidade e rotina.</p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card reveal reveal-delay-1">
+                        <span class="service-card-num">01</span>
+                        <h3>Unhas encravadas</h3>
+                        <p>Cuidados para reduzir dor, inflamação e recorrência com técnica adequada ao caso.</p>
+                    </article>
+                    <article class="service-card reveal reveal-delay-2">
+                        <span class="service-card-num">02</span>
+                        <h3>Calos e calosidades</h3>
+                        <p>Remoção segura de áreas de pressão para recuperar conforto ao caminhar.</p>
+                    </article>
+                    <article class="service-card reveal reveal-delay-3">
+                        <span class="service-card-num">03</span>
+                        <h3>Micoses e alterações</h3>
+                        <p>Avaliação de sinais nas unhas e na pele, com orientação de cuidados e acompanhamento.</p>
+                    </article>
+                    <article class="service-card reveal reveal-delay-4">
+                        <span class="service-card-num">04</span>
+                        <h3>Hidratação podal</h3>
+                        <p>Tratamento para ressecamento, fissuras e manutenção da integridade da pele.</p>
+                    </article>
+                    <article class="service-card reveal reveal-delay-5">
+                        <span class="service-card-num">05</span>
+                        <h3>Prevenção e orientação</h3>
+                        <p>Recomendações sobre corte, calçados, rotina de higiene e sinais que pedem atenção.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CONTATO ────────────────────────────────────────────────── -->
+        <section id="contato" class="section contact">
+            <div class="container">
+                <div class="section-heading section-heading-centered reveal">
+                    <div>
+                        <span class="section-kicker">Contato</span>
+                        <h2 class="section-title">Agende sua consulta.</h2>
+                    </div>
+                    <p class="section-lead">Envie uma mensagem pelo WhatsApp ou preencha o formulário. O retorno é feito pelos canais informados.</p>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="reveal reveal-delay-1">
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <span>WhatsApp</span>
+                                <a href="https://wa.me/5545999887908" target="_blank" rel="noopener">(45) 99988-7908</a>
+                            </div>
+                            <div class="contact-item">
+                                <span>E-mail</span>
+                                <a href="mailto:aneliselunkes@gmail.com">aneliselunkes@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <span>Endereço</span>
+                                <p>Rua das Missões, 734 — Jardim Marechal<br>Marechal Cândido Rondon — PR</p>
+                            </div>
+                            <div class="contact-item">
+                                <span>Horários</span>
+                                <p>Segunda a sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                            </div>
+                        </div>
+                        <div class="contact-actions">
+                            <a class="button button-primary" href="tel:+5545999887908">Ligar agora</a>
+                            <a class="button button-outline-white" href="#clinica">Ver clínicas</a>
+                        </div>
+                    </div>
+
+                    <form class="contact-form reveal reveal-delay-2" action="https://formsubmit.co/aneliselunkes@gmail.com" method="POST">
+                        <p class="form-title">Envie uma mensagem</p>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" autocomplete="name" required placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(45) 99999-9999">
+                            </div>
+                            <div class="form-group full">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" autocomplete="email" required placeholder="seu@email.com">
+                            </div>
+                            <div class="form-group full">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea id="mensagem" name="mensagem" placeholder="Conte rapidamente como posso ajudar." required></textarea>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_subject" value="Nova mensagem pelo site da Anelise Lunkes">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="box">
+                        <button type="submit" class="submit-btn">Enviar mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CLÍNICAS ──────────────────────────────────────────────── -->
+        <section id="clinica" class="section section-muted">
+            <div class="container">
+
+                <!-- Cabeçalho da seção -->
+                <div class="section-heading section-heading-centered reveal" style="margin-bottom: 2rem;">
+                    <div>
+                        <span class="section-kicker">Clínicas</span>
+                        <h2 class="section-title">Atendimento em duas unidades.</h2>
+                    </div>
+                    <p class="section-lead">Selecione a clínica mais próxima de você para ver endereço, horários e como chegar.</p>
+                </div>
+
+                <!-- Seletor de clínica -->
+                <div class="clinic-selector-wrap reveal">
+                    <div class="clinic-selector" role="tablist" aria-label="Selecionar clínica">
+                        <button
+                            class="clinic-tab active"
+                            role="tab"
+                            aria-selected="true"
+                            data-clinic="marechal">
+                            <span class="clinic-tab-name">Marechal Cândido Rondon</span>
+                            <span class="clinic-tab-sub">Clínica Principal</span>
+                        </button>
+                        <button
+                            class="clinic-tab"
+                            role="tab"
+                            aria-selected="false"
+                            data-clinic="assis">
+                            <span class="clinic-tab-name">Assis Chateaubriand</span>
+                            <span class="clinic-tab-sub">Filial</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Conteúdo dinâmico via JS -->
+                <div class="clinic-content" id="clinic-content" role="tabpanel" aria-live="polite">
+                    <!-- Preenchido pelo JavaScript -->
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ─── FOOTER ──────────────────────────────────────────────────── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a class="footer-logo" href="#inicio" aria-label="Anelise Lunkes Podóloga">
+                        Anelise Lunkes
+                        <span>Podóloga</span>
+                    </a>
+                    <p>Podologia clínica com atendimento cuidadoso, orientação preventiva e foco no conforto dos seus pés.</p>
+                </div>
+                <div>
+                    <h4>Contato</h4>
+                    <a href="tel:+5545999887908">(45) 99988-7908</a>
+                    <a href="mailto:aneliselunkes@gmail.com">aneliselunkes@gmail.com</a>
+                    <a href="https://wa.me/5545999887908" target="_blank" rel="noopener">WhatsApp</a>
+                </div>
+                <div>
+                    <h4>Horários</h4>
+                    <p>Segunda a sexta: 8h às 18h</p>
+                    <p>Sábado: 8h às 12h</p>
+                    <p>Domingo: fechado</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Anelise Lunkes — Podóloga. Todos os direitos reservados.</p>
+                <p>Desenvolvido por <a href="https://wirestack.com.br/" target="_blank" rel="noopener">Wire Stack</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/menu.js"></script>
+    <script src="./js/url-sem-id.js"></script>
+    <script>
+        // Header: solidifica ao rolar
+        (function () {
+            var header = document.getElementById('site-header');
+            var ticking = false;
+            function onScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(function () {
+                        header.classList.toggle('scrolled', window.scrollY > 30);
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+        }());
+
+        // Scroll reveal
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            if (!els.length) return;
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            els.forEach(function (el) { io.observe(el); });
+        }());
+
+        // ─── CLÍNICAS ──────────────────────────────────────────────────
+        (function () {
+            var WA_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+
+            var CLINICS = {
+                marechal: {
+                    badge: 'Clínica Principal',
+                    badgeClass: '',
+                    name: 'Marechal Cândido Rondon',
+                    tagline: 'Estrutura completa para atendimento podológico clínico.',
+                    description: 'A clínica principal em Marechal Cândido Rondon conta com equipamentos específicos para cada procedimento e ambiente preparado com todos os protocolos de biossegurança. Atendimento com hora marcada e pontualidade garantida.',
+                    address: 'Rua das Missões, 734<br>Jardim Marechal — Marechal Cândido Rondon, PR',
+                    phone: '(45) 99988-7908',
+                    whatsapp: 'https://wa.me/5545999887908',
+                    hours: [
+                        { day: 'Segunda a sexta', time: '8h às 18h' },
+                        { day: 'Sábado',           time: '8h às 12h' },
+                        { day: 'Domingo',          time: 'Fechado'   }
+                    ],
+                    images: [
+                        { src: './img/podologia-cuidado-unhas.jpg',  alt: 'Procedimento cuidadoso em unha do pé' },
+                        { src: './img/podologia-procedimento.jpg',   alt: 'Equipamentos da clínica em uso' }
+                    ],
+                    mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.779838169605!2d-54.06125088505549!3d-24.556860784199404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3b69db13a39c3%3A0x9b6df77b8bb8f527!2sR.%20das%20Miss%C3%B5es%2C%20734%20-%20Jardim%20Marechal%2C%20Marechal%20C%C3%A2ndido%20Rondon%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1692110400000!5m2!1spt-BR!2sbr'
+                },
+                assis: {
+                    badge: 'Filial',
+                    badgeClass: 'clinic-badge--filial',
+                    name: 'Assis Chateaubriand',
+                    tagline: 'Os mesmos cuidados e padrões da clínica principal.',
+                    description: 'A filial em Assis Chateaubriand atende em dias fixos da semana com agendamento prévio obrigatório. Ideal para pacientes da região que buscam qualidade sem precisar se deslocar até Marechal Cândido Rondon.',
+                    address: 'Rua das Orquídeas, 418<br>Centro — Assis Chateaubriand, PR',
+                    phone: '(45) 99988-7908',
+                    whatsapp: 'https://wa.me/5545999887908',
+                    hours: [
+                        { day: 'Terça-feira',  time: '8h às 17h'        },
+                        { day: 'Quinta-feira', time: '8h às 17h'        },
+                        { day: 'Outros dias',  time: 'Sob agendamento'  }
+                    ],
+                    images: [
+                        { src: './img/podologia-o-que-e-4-mob.jpg',  alt: 'Atendimento podológico em Assis Chateaubriand' },
+                        { src: './img/podologia-cuidado-unhas.jpg',  alt: 'Cuidado especializado na filial'               }
+                    ],
+                    mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58977!2d-53.5183!3d-24.4133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f3d81a8f1eda93%3A0x813b9ce91f8efde3!2sAssis%20Chateaubriand%2C%20PR!5e0!3m2!1spt-BR!2sbr!4v1716000000000!5m2!1spt-BR!2sbr'
+                }
+            };
+
+            var activeId = 'marechal';
+            var content  = document.getElementById('clinic-content');
+
+            function hoursHTML(hours) {
+                return hours.map(function (h) {
+                    return '<div class="clinic-hour-row"><span>' + h.day + '</span><strong>' + h.time + '</strong></div>';
+                }).join('');
+            }
+
+            function render(id) {
+                var c = CLINICS[id];
+                content.innerHTML = [
+                    '<div class="clinic-meta">',
+                    '  <div>',
+                    '    <span class="clinic-badge ' + c.badgeClass + '">' + c.badge + '</span>',
+                    '    <h3 class="clinic-name">' + c.name + '</h3>',
+                    '    <p class="clinic-tagline">' + c.tagline + '</p>',
+                    '  </div>',
+                    '  <a class="clinic-cta" href="' + c.whatsapp + '" target="_blank" rel="noopener">',
+                    '    ' + WA_SVG,
+                    '    Agendar nesta unidade',
+                    '  </a>',
+                    '</div>',
+
+                    '<div class="clinic-body">',
+
+                    '  <div class="clinic-info-stack">',
+                    '    <div class="clinic-info-item">',
+                    '      <span class="clinic-info-label">Endereço</span>',
+                    '      <p class="clinic-info-value">' + c.address + '</p>',
+                    '    </div>',
+                    '    <div class="clinic-info-item">',
+                    '      <span class="clinic-info-label">Telefone</span>',
+                    '      <a class="clinic-info-value" href="tel:+55' + c.phone.replace(/\D/g,'') + '">' + c.phone + '</a>',
+                    '    </div>',
+                    '    <div class="clinic-info-item">',
+                    '      <span class="clinic-info-label">Horários</span>',
+                    '      <div class="clinic-hours-list">' + hoursHTML(c.hours) + '</div>',
+                    '    </div>',
+                    '    <p class="clinic-desc">' + c.description + '</p>',
+                    '  </div>',
+
+                    '  <div class="clinic-images">',
+                    '    <img src="' + c.images[0].src + '" alt="' + c.images[0].alt + '" loading="lazy">',
+                    '    <img src="' + c.images[1].src + '" alt="' + c.images[1].alt + '" loading="lazy">',
+                    '  </div>',
+
+                    '</div>',
+
+                    '<div class="clinic-map">',
+                    '  <iframe src="' + c.mapSrc + '" title="Mapa ' + c.name + '" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>',
+                    '</div>'
+                ].join('');
+            }
+
+            function switchClinic(id) {
+                if (id === activeId) return;
+                activeId = id;
+
+                document.querySelectorAll('.clinic-tab').forEach(function (tab) {
+                    var on = tab.dataset.clinic === id;
+                    tab.classList.toggle('active', on);
+                    tab.setAttribute('aria-selected', on ? 'true' : 'false');
+                });
+
+                content.classList.add('is-loading');
+                setTimeout(function () {
+                    render(id);
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            content.classList.remove('is-loading');
+                        });
+                    });
+                }, 210);
+            }
+
+            document.querySelectorAll('.clinic-tab').forEach(function (tab) {
+                tab.addEventListener('click', function () { switchClinic(this.dataset.clinic); });
+            });
+
+            render('marechal');
+        }());
+    </script>
+</body>
+</html>
